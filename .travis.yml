@@ -13,8 +13,8 @@ script:
   - docker run --rm -v $PWD/Appium/tests:/root/tests "appium/appium:latest" bash tests/run-bats.sh
   - docker images
 
-after_success:
-  - if [[ $TRAVIS_PULL_REQUEST == "false" ]] && [[ "$TRAVIS_TAG" != "" ]]; then
-    docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD";
-    docker tag "appium/appium:latest" "appium/appium:$TRAVIS_TAG" && docker push "appium/appium:$TRAVIS_TAG" && docker push "appium/appium:latest" ;
-    fi
+# after_success:
+#   - if [[ $TRAVIS_PULL_REQUEST == "false" ]] && [[ "$TRAVIS_TAG" != "" ]]; then
+#     docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD";
+#     docker tag "appium/appium:latest" "appium/appium:$TRAVIS_TAG" && docker push "appium/appium:$TRAVIS_TAG" && docker push "appium/appium:latest" ;
+#     fi
